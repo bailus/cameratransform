@@ -8,16 +8,12 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-strategy:
-  matrix:
-    Python39:
-      python.version: '3.9'
 
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use python $(python.version)'
+    versionSpec: 3.6 # Functions V2 supports Python 3.6 as of today
+  displayName: 'Use Python 3.6'
 
 - script: |
     python -m pip install --upgrade pip
