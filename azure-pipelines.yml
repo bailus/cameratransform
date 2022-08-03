@@ -17,14 +17,25 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+  displayName: 'Use python $(python.version)'
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  displayName: 'Install dependencies'
+    python -m pip install -r requirements.txt
+  displayName: 'Install Python dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
+    python setup.py bdist_wheel
+  displayName: 'Build'
+
+- task: TwineAuthenticate@1
+  inputs:
+    artifactFeed: 'PBQ/pbq_python_feed'
+    pythonUploadServiceConnection: 'PythonPackageUpload'
+  displayName: 'Authenticate to Azure Artifacts server'
+
+- script: |
+    echo $(PYPIRC_PATH)
+    cat $(PYPIRC_PATH)
+    python3 -m twine upload -r pbq_python_feed --config-file $(PYPIRC_PATH) dist/*.whl
+  displayName: 'Publish to Azure Artifacts'
