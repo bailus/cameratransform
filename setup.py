@@ -19,7 +19,7 @@
 
 from setuptools import setup
 
-setup(name='cameratransform',
+setup(name='pbqcameratransform',
       version="1.2",
       description='Projects coordinates from 2D to 3D and can fit camera parameters',
       author='Richard Gerum',
