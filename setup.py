@@ -19,8 +19,8 @@
 
 from setuptools import setup
 
-setup(name='pbqcameratransform',
-      version="1.2.1",
+setup(name='cameratransform',
+      version="1.2.1-photoblique",
       description='Projects coordinates from 2D to 3D and can fit camera parameters',
       author='Richard Gerum',
       author_email='richard.gerum@fau.de',

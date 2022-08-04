@@ -15,6 +15,11 @@ steps:
     versionSpec: 3.6 # Functions V2 supports Python 3.6 as of today
   displayName: 'Use Python 3.6'
 
+- task: PipAuthenticate@0
+  inputs:
+    artifactFeeds: 'PBQ/pbq_python_feed'  # List of Azure Artifacts feeds to authenticate with pip.
+    #externalFeeds:  # Optional. List of service connections from external organizations to authenticate with pip
+
 - script: |
     python -m pip install --upgrade pip
     python -m pip install -r azure_pipelines_requirements.txt
