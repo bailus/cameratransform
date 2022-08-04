@@ -20,7 +20,7 @@
 from setuptools import setup
 
 setup(name='cameratransform',
-      version="1.2.1-photoblique",
+      version="1.2.4",
       description='Projects coordinates from 2D to 3D and can fit camera parameters',
       author='Richard Gerum',
       author_email='richard.gerum@fau.de',
