@@ -17,7 +17,7 @@ steps:
 
 - task: PipAuthenticate@0
   inputs:
-    artifactFeeds: 'PBQ/pbq_python_feed'  # List of Azure Artifacts feeds to authenticate with pip.
+    artifactFeeds: 'Photoblique2022/pbq_python_feed'  # List of Azure Artifacts feeds to authenticate with pip.
     #externalFeeds:  # Optional. List of service connections from external organizations to authenticate with pip
 
 - script: |
@@ -32,7 +32,7 @@ steps:
 
 - task: TwineAuthenticate@1
   inputs:
-    artifactFeed: 'PBQ/pbq_python_feed'
+    artifactFeed: 'Photoblique2022/pbq_python_feed'
     pythonUploadServiceConnection: 'PythonPackageUpload'
   displayName: 'Authenticate to Azure Artifacts server'
 
